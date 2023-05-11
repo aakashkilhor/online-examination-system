@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import myImage from "../assets/myMage.png"
-import {Box, Container, TextField, Grid, InputAdornment, IconButton, Button } from "@mui/material";
+import { Container, TextField,  InputAdornment, IconButton, Button } from "@mui/material";
 import Switch from "@mui/material/Switch";
-// import AuthContext from "../context/AuthContext";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
@@ -73,8 +72,8 @@ const LoginForm : React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid  justify="center" alignItems="center" style={{marginTop:'80px'}} >
-        <Container justify = "center" style={{ width: '200px',padding:'50px',backgroundColor:"#EFEFEF",borderRadius:"100px" }}>
+      <div style={{marginTop:'80px'}} >
+        <Container  style={{ width: '200px',padding:'50px',backgroundColor:"#EFEFEF",borderRadius:"100px" }}>
         // <img src={myImage} alt="Alt text for my image" />
         </Container>
         <Container style={{color:'#0B3558', fontFamily:'', fontSize:'48px'}}>
@@ -82,8 +81,8 @@ const LoginForm : React.FC = () => {
           <div style={{fontSize: '20px',fontFamily:'sans-serif', textAlign:'center'}}> Let's connect to your workspace.</div>
           <div style={{fontSize: '20px',fontFamily:'sans-serif', textAlign:'center'}}> Please enter your email to continue.</div>
         </Container>
-      <Container spacing={5} justify="center" alignItems="center">
-        <Container item style={{ width: '550px', marginTop:"32px" }} xs={12}>
+      <Container >
+        <Container style={{ width: '550px', marginTop:"32px" }}>
           <TextField
             fullWidth
             label="Email"
@@ -94,7 +93,7 @@ const LoginForm : React.FC = () => {
             helperText={emailError ? "Please enter a valid email" : ""}
           />
         </Container>
-        <div  style={{ width: '550px',marginTop:'27px' }} xs={12}>
+        <div  style={{ width: '550px',marginTop:'27px' }}>
           <TextField
             fullWidth
             label="Password"
@@ -123,13 +122,13 @@ const LoginForm : React.FC = () => {
         <Container>
           <div style={{fontSize: '20px',fontFamily:'sans-serif',color:'#003FB9', textAlign:'center', fontWeight:'bold', marginLeft:'320px',marginTop:'16px'}}>Forgot Password?</div>
         </Container>
-        <Container item  justify="center" alignItems="center" style = {{width:"550px"}}  xs={12}>
+        <Container  style = {{width:"550px"}} >
           <Button type="submit" variant="contained" style={{ width: '500px',marginTop:'24px', color: "#FFFFFF", background:"#003FB9", textTransform:"none",fontSize:"24px" }} fullWidth >
             Sign In
           </Button>
         </Container>
       </Container>
-      </Grid>
+      </div>
     </form>
   );
 };
