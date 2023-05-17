@@ -5,19 +5,22 @@ import Switch from "@mui/material/Switch";
 import axios from 'axios';
 import {useNavigate} from "react-router-dom";
 
-const LoginForm : React.FC = () => {
+const SignupForm : React.FC = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-
+  const navigate = useNavigate();
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const navigate = useNavigate();
+  const handleUserChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  }
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -81,6 +84,17 @@ const LoginForm : React.FC = () => {
         <Container style={{ width: '550px', marginTop:"32px" }}>
           <TextField
             fullWidth
+            label="Username"
+            variant="outlined"
+            value={username}
+            onChange={handleUserChange}
+            required
+            helperText={"Please enter username"}
+          />
+        </Container>
+        <Container style={{ width: '550px', marginTop:"32px" }}>
+          <TextField
+            fullWidth
             label="Email"
             variant="outlined"
             value={email}
@@ -129,4 +143,4 @@ const LoginForm : React.FC = () => {
   );
 };
 
-export default LoginForm;
+export default SignupForm;
