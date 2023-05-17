@@ -45,7 +45,8 @@ const SignupForm : React.FC = () => {
     }
     // Send login data to server
     axios
-      .post("http://localhost:3000/login", {
+      .post("http://localhost:3000/signin", {
+        name:username,
         email: email,
         password: password,
       },{
@@ -89,7 +90,6 @@ const SignupForm : React.FC = () => {
             value={username}
             onChange={handleUserChange}
             required
-            helperText={"Please enter username"}
           />
         </Container>
         <Container style={{ width: '550px', marginTop:"32px" }}>
